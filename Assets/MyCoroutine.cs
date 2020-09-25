@@ -6,12 +6,17 @@ public class MyCoroutine : MonoBehaviour
     private int i;
     void Start()
     {
-        i = 0;
-        StartCoroutine(Thread1());
-        var tempGameObject = new GameObject("zmj");
-        UnityEngine.Object.DontDestroyOnLoad(tempGameObject);
-        var gameobjct = GameObject.Find("zmj");
-        gameobjct.SetActive(false);
+        var t = ScheduleManager.CreateSchedule(1, () =>
+        {
+            Debug.Log("SSS");
+        });
+        t.Start();
+        // i = 0;
+        // StartCoroutine(Thread1());
+        // var tempGameObject = new GameObject("zmj");
+        // UnityEngine.Object.DontDestroyOnLoad(tempGameObject);
+        // var gameobjct = GameObject.Find("zmj");
+        // gameobjct.SetActive(false);
     }
 
     void Update()

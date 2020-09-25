@@ -208,6 +208,7 @@ class TaskManager : MonoBehaviour
 		if(singleton == null) {
 			GameObject go = new GameObject("TaskManager");
 			singleton = go.AddComponent<TaskManager>();
+			GameObject.DontDestroyOnLoad(singleton);
 		}
 		return new TaskState(coroutine);
 	}
